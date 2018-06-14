@@ -1,4 +1,4 @@
-$('button').on('click',function(){
+$('.register').on('click',function(){
     $.ajax({
         url:'/register',
         type:'post',
@@ -9,6 +9,43 @@ $('button').on('click',function(){
         },
         success:function(data){
             console.log(data);
+        }
+    });
+});
+$('.userlogin').on('click',function(){
+    $.ajax({
+        url:'/userLogin',
+        type:'post',
+        data:{
+            username:'huwenfei1',
+            password:md5('123456'),
+        },
+        success:function(data){
+            console.log(data);
+        }
+    });
+});
+$('.phonelogin').on('click',function(){
+    $.ajax({
+        url:'/phoneLogin',
+        type:'post',
+        data:{
+            phone:'15313085070',
+            code:code,
+        },
+        success:function(data){
+            console.log(data);
+        }
+    });
+});
+var code = 1;
+$('.getcode').on('click',function(){
+    $.ajax({
+        url:'/getCode',
+        type:'post',
+        data:{},
+        success:function(data){
+            code = data.data.code;
         }
     });
 });

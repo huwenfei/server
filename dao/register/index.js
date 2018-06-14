@@ -20,7 +20,7 @@ module.exports = {
     queryUserByUsername: function (username) {
         return new Promise(function (res, rej) {
             // connection.connect();
-            connection.query('SELECT USERNAME,PHONE FROM USERS WHERE USERNAME="' + username + '"', function (err, results, feilds) {
+            connection.query('SELECT USERNAME,PASSWORD,PHONE FROM USERS WHERE USERNAME="' + username + '"', function (err, results, feilds) {
                 if (err) {
                     rej({ code: 0, msg: '查询用户信息失败' });
                 } else {
